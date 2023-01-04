@@ -2,7 +2,29 @@
     "typeName": "Mackerel::Hosts::Service",
     "description": "An example resource schema demonstrating some basic constructs and validation rules.",
     "sourceUrl": "https://github.com/aws-cloudformation/aws-cloudformation-rpdk.git",
+    "typeConfiguration": {
+        "properties": {
+            "ServiceCredentials": {
+                "$ref": "#/definitions/Credentials"
+            }
+        },
+        "additionalProperties": false,
+        "required": [
+            "ServiceCredentials"
+        ]
+    },
     "definitions": {
+        "Credentials": {
+            "type": "object",
+            "properties": {
+                "ApiKey": {
+                    "description": "Mackerel API key",
+                    "type": "string",
+                    "pattern": "\\{\\{resolve:.*:[a-zA-Z0-9_.-/]+\\}\\}"
+                }
+            },
+            "additionalProperties": false
+        },
         "InitechDateFormat": {
             "$comment": "Use the `definitions` block to provide shared resource property schemas",
             "type": "string",
