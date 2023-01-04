@@ -13,3 +13,6 @@ vender/
 
 # contains credentials
 sam-tests/
+
+# python
+/env/
